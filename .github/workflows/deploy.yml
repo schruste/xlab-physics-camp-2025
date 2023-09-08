@@ -24,7 +24,8 @@ jobs:
       - name: Build the JupyterLite site
         run: |
           cp README.md content
-          jupyter lite build --contents content --output-dir dist
+          wget https://raw.githubusercontent.com/NGSolve/ngsolve/master/docs/i-tutorials/wta/poisson.ipynb -O content/poisson.ipynb
+          jupyter lite build --pyodide https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/pyodide.tar.bz2 --contents content --output-dir dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
