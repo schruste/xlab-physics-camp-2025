@@ -32,6 +32,7 @@ jupyterlab-night
 
 # Python: ipywidget library for Jupyter notebooks (optional)
 ipywidgets>=8.1.0,<9
+widgetsnbextension==4.0.7
 # Python: ipyevents library for Jupyter notebooks (optional)
 ipyevents>=2.0.1
 # Python: interative Matplotlib library for Jupyter notebooks (optional)
