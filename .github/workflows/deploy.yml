@@ -26,8 +26,6 @@ jobs:
           bash .github/workflows/build.sh
       - name: Build the JupyterLite site
         run: |
-          cp README.md content
-          wget https://raw.githubusercontent.com/NGSolve/ngsolve/master/docs/i-tutorials/wta/poisson.ipynb -O content/poisson.ipynb
           jupyter lite build --pyodide pyodide.tar.bz2 --contents content --output-dir dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
