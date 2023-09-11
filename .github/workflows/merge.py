@@ -1,6 +1,7 @@
 import sys
 import urllib.request
 import json
+import os
 
 url = sys.argv[1]
 urllib.request.urlretrieve(url, 'ngsolve.json')
@@ -13,7 +14,7 @@ ori['info']['version'] = "0.24.0a1"
 del pkg['micropip']
 for name in pkg:
     p = pkg[name]
-    if not p['file_name'].startswith('https://'):
+    if not p['file_name'].startswith('https://') and not os.path.exists(os.path.join('pyodide', p['file_name'])):
         p['file_name'] = "https://cdn.jsdelivr.net/pyodide/dev/full/"+p['file_name']
     pkg[name] = p
 for name in ngs:
