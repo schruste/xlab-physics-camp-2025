@@ -54,7 +54,7 @@ pkg.update({
     "netgen": {
       "name": "netgen",
       "version": "6.2.2304",
-      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/netgen.zip",
+      "file_name": "netgen.zip",
       "install_dir": "stdlib",
       "sha256": "cf1656caff13c5f06926efd39cd8bd5d5aa99b457e014df5b9990adc9d4ec07c",
       "package_type": "cpython_module",
@@ -71,7 +71,7 @@ pkg.update({
     "ngsolve": {
       "name": "ngsolve",
       "version": "6.2.2304",
-      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/ngsolve.zip",
+      "file_name": "ngsolve.zip",
       "install_dir": "stdlib",
       "sha256": "4ea7339029648daff408a46bcb031355974fc759b0f108ce0525d91f4247edf2",
       "package_type": "cpython_module",
@@ -89,7 +89,7 @@ pkg.update({
     "pyngcore": {
       "name": "pyngcore",
       "version": "0.0.1",
-      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/pyngcore.zip",
+      "file_name": "pyngcore.zip",
       "install_dir": "stdlib",
       "sha256": "afb15ca2d1b03925e7d77d798e06a325a06bca22b36e63219b4fba4d11dad05d",
       "package_type": "cpython_module",
