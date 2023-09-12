@@ -1,32 +1,18 @@
 import sys
-import urllib.request
 import json
 import os
 
-url = sys.argv[1]
-urllib.request.urlretrieve(url, 'ngsolve.json')
+pyodide_version = os.environ['PYODIDE_VERSION']
 
-ngs = json.load(open('ngsolve.json'))['packages']
-ori = json.load(open(sys.argv[2]))
+repo_file = 'pyodide/repodata.json'
+ori = json.load(open(repo_file))
 pkg = ori['packages']
-ori['info']['version'] = "0.24.0a1"
 
-del pkg['micropip']
 for name in pkg:
     p = pkg[name]
     if not p['file_name'].startswith('https://') and not os.path.exists(os.path.join('pyodide', p['file_name'])):
-        p['file_name'] = "https://cdn.jsdelivr.net/pyodide/dev/full/"+p['file_name']
+        p['file_name'] = f"https://cdn.jsdelivr.net/pyodide/v{pyodide_version}/full/"+p['file_name']
     pkg[name] = p
-for name in ngs:
-    if name not in pkg:
-        p = ngs[name]
-        if p['file_name'].startswith('https://ngsolve'):
-            continue
-        if not p['file_name'].startswith('https://'):
-            url = "https://ngsolve.org/ngslite/static/pyodide/"+p['file_name']
-            print("download", url)
-            urllib.request.urlretrieve(url, f'pyodide/{p["file_name"]}')
-        pkg[name] = p
 
 pkg.update({
     "ipykernel": {
@@ -64,9 +50,56 @@ pkg.update({
       "sha256": "5fd374049672a5350eb999956f3051dde5523983f8a611b11a6ffabc32a794df",
       "imports": [],
       "depends": []
+    },
+    "netgen": {
+      "name": "netgen",
+      "version": "6.2.2304",
+      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/netgen.zip",
+      "install_dir": "stdlib",
+      "sha256": "cf1656caff13c5f06926efd39cd8bd5d5aa99b457e014df5b9990adc9d4ec07c",
+      "package_type": "cpython_module",
+      "imports": [
+        "netgen"
+      ],
+      "depends": [
+        "pyngcore",
+        "webgui_jupyter_widgets"
+      ],
+      "unvendored_tests": False,
+      "shared_library": True
+    },
+    "ngsolve": {
+      "name": "ngsolve",
+      "version": "6.2.2304",
+      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/ngsolve.zip",
+      "install_dir": "stdlib",
+      "sha256": "4ea7339029648daff408a46bcb031355974fc759b0f108ce0525d91f4247edf2",
+      "package_type": "cpython_module",
+      "imports": [
+        "ngsolve"
+      ],
+      "depends": [
+        "openblas",
+        "numpy",
+        "netgen"
+      ],
+      "unvendored_tests": False,
+      "shared_library": True
+    },
+    "pyngcore": {
+      "name": "pyngcore",
+      "version": "0.0.1",
+      "file_name": "https://github.com/mhochsteger/jupyterlite_ngsolve/releases/download/0.0.1/pyngcore.zip",
+      "install_dir": "stdlib",
+      "sha256": "afb15ca2d1b03925e7d77d798e06a325a06bca22b36e63219b4fba4d11dad05d",
+      "package_type": "cpython_module",
+      "imports": [
+        "pyngcore"
+      ],
+      "depends": [],
+      "unvendored_tests": False,
+      "shared_library": True
     }
 })
 
-json.dump(ori, open(sys.argv[2], 'w'), indent=2)
-
-
+json.dump(ori, open(repo_file, "w"), indent=2)
