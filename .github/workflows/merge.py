@@ -79,7 +79,7 @@ pkg.update({
         "ngsolve"
       ],
       "depends": [
-        "openblas",
+        "clapack",
         "numpy",
         "netgen"
       ],
