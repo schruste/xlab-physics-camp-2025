@@ -63,7 +63,7 @@ pkg.update({
       ],
       "depends": [
         "pyngcore",
-        "webgui_jupyter_widgets"
+        "webgui-jupyter-widgets"
       ],
       "unvendored_tests": False,
       "shared_library": True
