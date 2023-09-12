@@ -13,5 +13,5 @@ async function generateRepodata() {
 }
 
 generateRepodata().then((result) => {
-  fs.writeFileSync('pyodide/repodata.json', result);
+  fs.writeFileSync('repodata.json', result);
 });
