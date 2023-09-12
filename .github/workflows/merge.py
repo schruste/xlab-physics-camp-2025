@@ -13,6 +13,7 @@ for name in pkg:
         p['file_name'] = f"https://cdn.jsdelivr.net/pyodide/v{pyodide_version}/full/"+p['file_name']
     pkg[name] = p
 
+pkg['webgui-jupyter-widgets']['depends'].append('numpy')
 pkg.update({
     "ipykernel": {
       "name": "ipykernel",
