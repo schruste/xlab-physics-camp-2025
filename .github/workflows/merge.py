@@ -56,7 +56,7 @@ pkg.update({
       "version": "6.2.2304",
       "file_name": "netgen.zip",
       "install_dir": "stdlib",
-      "sha256": "cf1656caff13c5f06926efd39cd8bd5d5aa99b457e014df5b9990adc9d4ec07c",
+      "sha256": "b249eee90f440b85fccfa4a5206b93d1b7109baac4cffe8a535e434d9dfd290b",
       "package_type": "cpython_module",
       "imports": [
         "netgen"
@@ -73,7 +73,7 @@ pkg.update({
       "version": "6.2.2304",
       "file_name": "ngsolve.zip",
       "install_dir": "stdlib",
-      "sha256": "4ea7339029648daff408a46bcb031355974fc759b0f108ce0525d91f4247edf2",
+      "sha256": "5c90e3ffe388fae737f029952f4519cce296453378716936715068d9110216e5",
       "package_type": "cpython_module",
       "imports": [
         "ngsolve"
@@ -91,7 +91,7 @@ pkg.update({
       "version": "0.0.1",
       "file_name": "pyngcore.zip",
       "install_dir": "stdlib",
-      "sha256": "afb15ca2d1b03925e7d77d798e06a325a06bca22b36e63219b4fba4d11dad05d",
+      "sha256": "868d2af7ab36260a35e87375e74f985896c0050cb0ced69f7641d89bbdda0066",
       "package_type": "cpython_module",
       "imports": [
         "pyngcore"
