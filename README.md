@@ -9,6 +9,11 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 ➡️ **https://ngsolve.github.io/jupyterlite_ngsolve**
 
 
+## Setting up your own NGSolve - jupyterlite demos:
+
+1. Click on 'Create from template'
+
+
 ## Further Information and Updates
 
 For more info, keep an eye on the JupyterLite documentation:
