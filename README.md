@@ -6,7 +6,7 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
 ## ✨ Try it in your browser ✨
 
-➡️ **https://ngsolve.github.io/jupyterlite_ngsolve**
+➡️ **https://ngsolve.github.io/jupyterlite_ngsolve/lab?path=poisson.ipynb**
 
 
 ## Setting up your own NGSolve - jupyterlite demos:
