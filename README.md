@@ -11,7 +11,13 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
 ## Setting up your own NGSolve - jupyterlite demos:
 
-1. Click on 'Create from template'
+1. Click on 'Use this template' to create your copy of the repo
+
+2. Enable github-pages from actions:
+
+   Settings -> Pages -> Source: 'github actions'
+
+
 
 
 ## Further Information and Updates
