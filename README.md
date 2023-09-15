@@ -17,6 +17,11 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
    Settings -> Pages -> Source: 'github actions'
 
+3. Click on 'Actions', and allow workflow actions
+
+4. Fill the 'contents' folder with your notebooks
+
+5. Adjust links to your github pages website
 
 
 
