@@ -11,13 +11,15 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
 ## Setting up your own NGSolve - jupyterlite demos:
 
-1. Click on 'Use this template' to create your new, public repository
+1. Sign in to your github account
    
-3. Enable github-pages from actions:
+2. Click on 'Use this template' to create your new, public repository
+   
+3. Enable 'github-pages from actions':
 
    Settings -> Pages -> Source: 'github actions'
 
-4. Click on 'Actions', and allow workflow actions
+4. Click on 'Actions', and allow workflow actions (maybe not necessary ?)
 
 5. Fill the 'contents' folder with your notebooks
 
