@@ -1,9 +1,9 @@
 # Core modules (mandatory)
-jupyterlite-core==0.1.2
+jupyterlite-core==0.2.3
 jupyterlab~=3.5.3
 
 # Python kernel (optional)
-jupyterlite-pyodide-kernel==0.1.1
+jupyterlite-pyodide-kernel==0.2.3
 
 # JavaScript kernel (optional)
 # jupyterlite-javascript-kernel==0.1.1
