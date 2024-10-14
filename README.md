@@ -8,7 +8,6 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
 ➡️ **https://ngsolve.github.io/jupyterlite_ngsolve/lab?path=poisson.ipynb**
 
-
 ## Setting up your own NGSolve - jupyterlite demos:
 
 1. Sign in to your github account
