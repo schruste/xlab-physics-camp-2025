@@ -44,5 +44,5 @@ ipympl>=0.8.2
 #bqplot
 
 widgetsnbextension==4.0.13
-webgui_jupyter_widgets==0.2.36
+webgui_jupyter_widgets==0.2.37
 jupyterlab-open-url-parameter
