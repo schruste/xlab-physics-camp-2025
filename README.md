@@ -12,17 +12,17 @@ JupyterLite deployed as a static site to GitHub Pages, for demo purposes.
 
 1. Sign in to your github account
    
-2. Click on 'Use this template' to create your new, public repository
+3. Click on 'Use this template' to create your new, public repository
    
-3. Enable 'github-pages from actions':
+4. Enable 'github-pages from actions':
 
    Settings -> Pages -> Source: 'github actions'
 
-4. Click on 'Actions', and allow workflow actions (maybe not necessary ?)
+5. Click on 'Actions', and allow workflow actions (maybe not necessary ?)
 
-5. Fill the 'contents' folder with your notebooks
+6. Fill the 'contents' folder with your notebooks
 
-6. Adjust links to your github pages website
+7. Adjust links to your github pages website
 
 ## Further Information and Updates
 
