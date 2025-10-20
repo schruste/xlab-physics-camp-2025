@@ -1,0 +1,118 @@
+# Maximale Anzahl der Zeitschritte (natürliche Zahl), über die die Epidemie 
+#   (und die Maßnahmen) verfolgt werden soll. Ein Zeitschritt entspricht 1 Tag.
+#   Ein Jahr ist also n=365.
+
+#------------------#
+n= 500
+#------------------#
+
+
+# Anzahl aller Individuen in der Population (natürliche Zahl), oder auch 
+#   Bevölkerungsgröße genannt. Dies könnte beispielsweise alle Menschen
+#   in Deutschland (grober Richtwert 80 Millionen) sein.
+
+#------------------#
+N= 80000000
+#------------------#
+
+
+# Anzahl der Suszeptiblen (gesund, aber infizierbar) in der Bevölkerung 
+#   (natürliche Zahl) zum Startzeitpunkt der Rechnung.
+#   Zu Beginn einer Epidemie ist die Anzahl der Suszeptiblen fast so groß wie
+#   die ganze Bevölkerung. Andere Betrachtungen sind jedoch ebenfalls möglich.
+
+#------------------#
+S= 79999000
+#------------------#
+
+
+# Anzahl der Infizierten (Infektiösen) in der Bevölkerung (natürliche Zahl)
+#   zum Startzeitpkt der Rechnung. 
+#   Zu Beginn einer Epidemie ist die Anzahl der Infizierten recht klein. Andere
+#   Betrachtungen sind jedoch ebenfalls möglich.
+#   Variiere in Zehnerpotenzen (1, 10, 100, 1000 usw) 
+#  !Passe S entsprechend an, dassN nicht überschritten wird!
+
+#------------------#
+I= 1000
+#------------------#
+
+
+# Anzahl der Resistenten R in der Bevölkerung (natürliche Zahl) zum Startzeitpkt.
+#    muss nicht festgelegt werden. Sie ergibt sich automatisch aus S+I+R =N.
+
+
+# Infektionsrate für einen Tag. Sie ergibt sich aus der Anzahl der Kontakte M 
+#   (natürliche Zahl) einer Person und der Wahrscheinlichkeit der Ansteckung p
+#   (zwischen 0% [=0] und 100% [=1.0]). Multipliziere M und p für beta.
+#   Bsp. Corona hat beta= 0.407 (2.85/7)
+
+#------------------#
+beta= 0.407
+#------------------#
+
+
+# Genesungs-/Resistentsrate, mit der der Anteil der Genesenen/ nicht mehr 
+#   Infektiösen pro Tag angegeben wird. Ein Prozentanteil zwischen 0% [=0]
+#   und 100% [=1.0]
+#   Bsp. Corona hat gamma= 0.143 (1/7)
+  
+#------------------#
+gamma= 0.143 
+#------------------#
+
+
+#################################################################################
+#################################################################################
+
+
+# Reduktion der ursprünglichen Infektionsrate durch Lockdown, Maskentragen etc. 
+#   auf ...%. Die Angabe erfolgt wieder als Dezimalzahl (0% [=0] und 100% [=1.0]).
+#   Je kleiner der Wert, desto stärker wird abgesenkt/ eingegriffen.
+#   Bsp. reduce= 0.7 bedeutet, dass die Infektionsrate um 30% geschwächt 
+#        wird. Das Programm berechnet "reduce mal beta" für die neue Infektions-
+#        rate.
+
+#------------------#
+reduce= 0.3
+#------------------#
+
+
+# Der Tag, an dem der Lockdown (das Absenken der Infektionsrate) startet.
+
+#------------------#
+nlockdown=  45
+#------------------#
+
+
+# Die Einsatzmittel/ Ressourcen für den Lockdown begrenzen die Länge des
+#   Einsatzes. Wenn sie aufgebraucht sind, steigt die Infektionsrate wieder auf
+#   beta an. 
+#   Wähle E bis maximal 100  
+
+#------------------#
+E= 5
+#------------------#
+
+
+# Der Tag, an dem das Impfen startet. Die Impfaktion endet nie und ist hier 
+#   unabhängig von den Ressourcen!
+
+#------------------#
+nvacc= 5
+#------------------#
+
+
+# Impfrate, die die Suszeptiblen resistent gegenüber der Krankheit macht. Die  
+#   Rate ergibt sich aus dem Anteil, der sich pro Tag impfen lässt. Die 
+#   Angabe erfolgt wieder als Dezimalzahl (0% [=0] und 100% [=1.0]).
+#   Je höher der Wert, desto größer der tägliche Anteil der Impfwilligen.
+# Wenn nicht geimpft werden soll, stelle diese Rate auf Null (0)!
+
+#------------------#
+vaccrate= 0
+#------------------#
+
+
+
+

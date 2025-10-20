@@ -1,0 +1,51 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{blatt.tex}
+
+%\renewcommand{\ifdraft}{\true}
+
+\begin{document}
+\head{}{}{}
+ 
+\begin{task}[Partial Integration / Boundary Conditions]{}
+We recall the product rule of differentiation:
+$$
+ f(x) = g(x) \cdot h(x) \quad \Longrightarrow \quad f'(x) = g'(x) h(x) + g(x) h'(x)
+$$
+Therefore, with the Fundamental theorem of Calculus, we have
+\begin{equation}\label{eq:partInt}
+ [f(x)]_a^b = \int_a^b f'(x) dx = \int_a^b \left( g'(x) h(x) + g(x) h'(x) \right) dx = \int_a^b g'(x) h(x) dx + \int_a^b g(x) h'(x) dx.
+\end{equation}
+ 
+\begin{enumerate}
+  \item 
+  Convert the equation
+  $$ 
+  \int_a^b - k \frac{d^2 u}{d x^2}(x) v(x) \ dx = \int_a^b q_Q(x) v(x) \ dx
+  $$
+  using \eqref{eq:partInt} into 
+  \begin{equation}\label{eq:varform}
+      \Longrightarrow  \int_a^b k \frac{d u}{d x}(x) \frac{d v}{d x}(x) \ dx - \Big[k \frac{d u}{dx}(x) v(x) \Big]_a^b = \int_a^b q_Q(x) v(x) \ dx
+  \end{equation}
+  \item We consider two types of boundary conditions.
+  \begin{itemize}
+    \item
+    "Robin" type boundary conditions, where the (outgoing) heat flux
+    at the edge
+    $q_S(a) = k \frac{d u}{dx}(a)$ or  $q_S(b) = - k \frac{d u}{dx}(b)$
+    is modeled with:
+  $$
+    q_S(x) = \alpha (u(x) - T^{\text{ref}}), 
+  $$
+  here $\alpha \in \mathbb{R}$ is the heat transfer coefficient and $T^{\text{ref}} \in \mathbb{R}$ is a reference temperature outside the interval.
+    \item
+    "Neumann" type boundary conditions, where the heat flux is directly prescribed:
+  $$
+    q_S(x) = q_S^{\text{ref}} \in \mathbb{R}. 
+  $$
+  \end{itemize}
+  Formulate \eqref{eq:varform} for both cases in such a way that on the left side of the equations all terms with $u$ and derivatives of $u$ stand, and all other terms appear on the right side.
+\end{enumerate}
+\end{task}
+
+\end{document}

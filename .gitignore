@@ -114,3 +114,8 @@ dmypy.json
 # jupyterlite
 *.doit.db
 _output
+*.fls
+*.log
+*.aux
+*.synctex.gz
+*.fdb_latexmk

@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{blatt.tex}
+
+%\renewcommand{\ifdraft}{\true}
+
+\begin{document}
+\head{}{}{}
+
+\begin{task}[Heat Flow]{}
+We consider the temperature distribution over the area
+$
+ \Omega = [0,1 cm]^2 
+$, i.e., $ x \in [0,1 cm]$, $ y \in [0,1 cm]$. We recall the heat flow model:
+$$
+ \vec{q}(x,y) = - k \nabla u(x,y)
+$$
+A temperature distribution of
+$$
+ u(x,y) = (1 + \cos(\pi \cdot (x+y))) \cdot 20^\circ C
+$$
+is measured. The thermal conductivity is $k = 0.625 \frac{W}{K m} $.
+
+\begin{enumerate}
+\item Calculate the heat flow across the boundary of $\Omega$. \\
+  \textbf{Hint}:
+  \begin{itemize}
+  \item Consider one boundary piece after another, e.g., $[0,1 cm] \times \{0\}$ (i.e., $(x,0)$ for $x \in [0,1 cm]$) for the lower boundary.
+  \item What is the normal direction on this boundary piece? Which partial derivative is, therefore, relevant? Calculate this.
+  \item Then, integrate over the boundary piece (only one running variable)
+  \item Finally, sum up the flows.
+  \end{itemize}
+  \item Assuming that the temperature field obeys the heat conduction equation. Can you tell whether the area is being heated or cooled?
+\end{enumerate}
+\end{task}
+
+\begin{task}[Boundary Conditions]{}
+We consider the temperature distribution over the area
+$
+ \Omega = [0,1 cm]^2 
+$, i.e., $ x \in [0,1 cm]$, $ y \in [0,1 cm]$. It applies the partial differential equation
+$$
+  - k \Delta u (x,y) = f \quad \text{for all} (x,y) \in \Omega, \text{i.e., for all } x \in (0,1) \text{ and } y \in (0,1).
+$$
+We choose a heat source $f=1$. 
+We need boundary conditions to get to a unique solution. For this, we specify the temperature at the left and right borders, $u(\hat{x},y)=20^\circ C$ for $\hat{x} \in \{0,1\}$ and assume that the upper and lower borders are perfectly insulated, i.e., the heat flow to the outside is zero.
+
+\begin{enumerate}
+\item Formulate the equations for the boundary conditions.
+\item Due to the boundary conditions, we can suspect that the vertical component of the heat flow is zero in the entire region. Determine \emph{one} solution to the problem analytically under this assumption. (Since the problem has exactly one unique solution, this is the only solution.) \\
+  \textbf{Remark:} \\
+  The calculation of closed solutions is only possible in exceptional cases (like this example). Next, we will use numerical calculations to determine solutions.
+\end{enumerate}
+\end{task}
+
+\end{document}

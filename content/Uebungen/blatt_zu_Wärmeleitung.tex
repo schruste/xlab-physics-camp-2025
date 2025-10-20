@@ -1,0 +1,38 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{blatt.tex}
+
+%\renewcommand{\ifdraft}{\true}
+
+\begin{document}
+\head{}{}{}
+ 
+\begin{task}[Solution of the Heat Equation]{}
+
+We consider a rod of length $l$, mathematically a one-dimensional domain $\Omega=(0:l)$. The rod has a constant thermal conductivity $k$ and is heated with a constant heat flux density $q_Q$. Therefore, $q_Q>0$.
+ 
+\begin{enumerate}
+ \item 
+ Calculate the temperature distribution $u(x)$ for the stationary case from the heat equation
+ $$
+ -k \frac{d^2u}{dx^2}(x) = q_Q
+ $$
+ \item 
+ Show that the temperature distribution in the stationary case can be expressed as
+ \begin{equation}\label{eq:tempdistribution}
+ u(x)=-\frac{q_Q}{2k} \cdot x^2 + \frac{du}{dx}(0) \cdot x + u(0)
+ \end{equation}
+ \item
+ Specify which expressions in this equation are material parameters and which are boundary conditions (what type of boundary conditions?).
+ \item
+ Consider now an experiment where both boundary conditions are Dirichlet boundary conditions, where the temperature at the ends of the rod is given by $u(0)$ and $u(l)$. Bring Equation (\ref{eq:tempdistribution}) into a form where only these two boundary conditions appear.
+ \item
+ Due to the heating of the rod, it is possible that the temperature maximum of the rod is not at the rod ends but in between. Show that a temperature maximum between the rod ends can only occur under the condition
+ $$
+ \left|u(l)-u(0)\right|<\frac{q_Ql^2}{2k}
+ $$
+ What does this mean physically?
+\end{enumerate}
+\end{task}
+
+\end{document}

@@ -1,0 +1,83 @@
+\usepackage{amsmath}
+%\usepackage{german}
+\usepackage{amsfonts}
+\usepackage{bbm}
+\usepackage{todonotes}
+
+% Setup the page
+\setlength{\oddsidemargin}{1in}
+\setlength{\evensidemargin}{1in}
+\setlength{\topmargin}{1in}
+
+\setlength{\textwidth}{210mm}
+\addtolength{\textwidth}{-\oddsidemargin}
+\addtolength{\textwidth}{-\evensidemargin}
+
+\setlength{\textheight}{297mm}
+\addtolength{\textheight}{-2\topmargin}
+\addtolength{\textheight}{-\headheight}
+\addtolength{\textheight}{-\headsep}
+\addtolength{\textheight}{-\footskip}
+
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\addtolength{\topmargin}{-1in}
+
+\setlength{\parindent}{0in}
+
+\pagestyle{empty}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+\newcommand{\clnote}[1]{\todo[inline,color=blue!20]{CL: #1}}
+
+% Create task enviroment
+\newcounter{task}
+
+\newenvironment{task}[2][]
+{\goodbreak\def\a{}\def\b{#1}\par\bigskip\stepcounter{task}\textbf{Exercise \thetask{\if\a\b\else\ (#1)\fi}}\hfill\def\b{#2}\if\a\b\else(#2)\fi\nopagebreak\par}
+{}
+
+% Define mathematical constants
+\newcommand{\setR}{\mathbbm{R}}
+\newcommand{\setN}{\mathbbm{N}}
+\newcommand{\setP}{\mathbbm{P}}
+\newcommand{\setQ}{\mathbbm{Q}}
+\newcommand{\setZ}{\mathbbm{Z}}
+
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\grad}{\mathrm{grad}}
+\newcommand{\rot}{\mathrm{rot}}
+
+\newcommand{\pprime}{{\prime\prime}}
+
+\newcommand{\conv}{\mathrm{conv}}
+\newcommand{\dist}{\mathrm{dist}}
+\newcommand{\supp}{\mathrm{supp}}
+\renewcommand{\ker}{\mathrm{kern}}
+\newcommand{\sgn}{\mathrm{sign}}
+
+\newcommand{\esssup}{\mathop{\mathrm{ess\,sup}}}
+
+% Create draft macro
+\newcommand{\false}[2]{#2}
+\newcommand{\true}[2]{#1}
+
+\newcommand{\ifdraft}{\false}
+
+% Create head of sheet
+\newcommand{\head}[3]{
+  XLAB Science Camp August 12th -- 15th 2024   \\
+  
+
+\vspace{3\baselineskip}
+\begin{center}
+Exercise\\[0.25\baselineskip]
+{\large\textbf{Numerical simulation of physical systems:}\\[0.25\baselineskip]}
+% SS 2016 --- #1
+\end{center}
+
+\vspace*{\baselineskip}
+\ifdraft{\centerline{--- DRAFT ---}}{\vspace*{\baselineskip}}
+\vspace*{\baselineskip}
+\def\a{}\def\b{#3}\if\a\b\else{\textbf{Abgabe:} #3, vor der Vorlesung\par}\fi
+}

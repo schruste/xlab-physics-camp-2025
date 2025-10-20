@@ -1,0 +1,151 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{blatt.tex}
+
+%\renewcommand{\ifdraft}{\true}
+
+\begin{document}
+\head{}{}{}
+
+%\begin{task}[Wellengleichung in 1D]{}
+% Wir betrachten die skalare Wellengleichung (in 1D)
+%\begin{equation} \label{eq:wave1d}
+% \frac{\partial^2 u}{\partial t^2}(x,t) = c^2 \frac{\partial^2 u}{\partial x^2}(x,t)
+%\end{equation}
+%\begin{enumerate}
+%\item Anfangs sei $u(x,0) = v(x) + w(x)$ für zwei bekannte Funktionen $v(x)$ und $w(x)$. Zeigen Sie, dass $u(x,t) = v(x+c \cdot t) + w(x-c \cdot t)$ die Wellengleichung \eqref{eq:wave1d} löst.\\
+%  \textbf{Hinweise:}
+%  \begin{itemize}
+%  \item Die Funktionen $v(x)$ und $w(x)$ repräsentieren die Lösungsanteile der Wellengleichung welche nach links beziehungsweise nach rechts transportiert werden. $u(x,t)$ ist die Überlagerung dieser beiden Transportvorgänge.
+%  \item Die Lösung $u(x,t)$ ist nicht eindeutig. Zum Beispiel wäre auch $u(x,t) = v(x-c \cdot t) + w(x+c \cdot t)$ eine Lösung. Um eine eindeutige Lösung zu erhalten muss man zusätzlich Anfangswerte $\frac{\partial u}{\partial t}(x,0)$ vorschreiben.
+%  \end{itemize}
+%\item Betrachten wir nun \eqref{eq:wave1d} auf dem Interval $[0,q]$ mit $q > 0$. Als Randbedingungen verlangen wir
+%$$
+% u(0,t) = \sin(\pi \cdot c \cdot t) \qquad \text{und} \qquad  \frac{\partial u}{\partial t}(q,t) + c \frac{\partial u}{\partial x}(q,t) = 0
+% $$
+% und als Anfangswerte schreiben wir vor
+% $$
+% u(x,0) = -\sin(\pi \cdot x) \qquad \text{und} \qquad
+%\frac{\partial u}{\partial t}(x,0) = c \pi \cdot  \cos(\pi \cdot x).
+%$$
+%Geben Sie die Lösung der Wellengleichung an. \\
+%\textbf{Hinweise:} \\
+%Bedenken Sie eine mögliche Zerlegung wie in Aufgabenteil (a).
+%\item Skizzieren Sie die Lösung für $t=0$, $t=\frac{1}{4c}$, $t=\frac{1}{2c}$.
+%\item Welche physikalische Bedeutung hat die Randbedingung am rechten Rand $q$?  
+%\end{enumerate}
+%\end{task}
+
+
+\begin{task}[Elektromagnetische Schwingungen und Wellen]{}
+Elektromagnetische Felder gehorchen den sogenannten Maxwell-Gleichungen, die wir hier für den 3D-Fall angeben wollen. In dieser Aufgabe wollen wir diese relativ komplizierten Gleichung auf eine einfachere \emph{skalare} Wellengleichung überführen.
+
+Sei 
+$$
+\vec{B}(x,y,z, t) = (B_x(x,y,z, t),B_y(x,y,z, t),B_z(x,y,z, t))
+$$ 
+die magnetische Flussdichte (Einheit $[B] = 1 T$) und 
+$$
+\vec{E}(x,y,z, t) = (E_x(x,y,z, t),E_y(x,y,z, t),E_z(x,y,z, t))
+$$
+die elektrische Feldstärke (Einheit $[E] = 1 V / m$).
+\begin{itemize}
+  \item Änderung der magnetischen Flussdichte führen zu einem Wirbelfeld:
+  \begin{equation} \label{eq:maxw1}
+\frac{\partial \vec{B}}{\partial t}(x,y,z, t) = - \left( \begin{array}{c}
+ \frac{\partial {E}_z}{\partial y}(x,y,z, t) - \frac{\partial {E}_y}{\partial z}(x,y,z, t) \\
+ \frac{\partial {E}_x}{\partial z}(x,y,z, t) - \frac{\partial {E}_z}{\partial x}(x,y,z, t) \\
+ \frac{\partial {E}_y}{\partial x}(x,y,z, t) - \frac{\partial {E}_x}{\partial y}(x,y,z, t)
+\end{array} \right)
+\end{equation}
+  \item Elektrische Ströme -- d.h. externe Ströme und Änderungen der elektrischen Feldstärke --  führen zu einem magnetischen Wirbelfeld:
+  \begin{equation} \label{eq:maxw2}
+  \mu \vec{j} + \mu \varepsilon \frac{\partial \vec{E}}{\partial t}(x,y,z, t) = \left( \begin{array}{c}
+ \frac{\partial {B}_z}{\partial y}(x,y,z, t) - \frac{\partial {B}_y}{\partial z}(x,y,z, t) \\
+ \frac{\partial {B}_x}{\partial z}(x,y,z, t) - \frac{\partial {B}_z}{\partial x}(x,y,z, t) \\
+ \frac{\partial {B}_y}{\partial x}(x,y,z, t) - \frac{\partial {B}_x}{\partial y}(x,y,z, t)
+\end{array} \right)
+% \mu_0
+% \left( \begin{array}{c}
+%   j_x \\ j_y \\ j_z
+%  \end{array} \right)
+\end{equation}
+  \item Hierbei ist 
+  \begin{itemize}
+    \item $\vec{j}$ der Vektor der elektrischen Stromdichte (im folgenden $0$)
+    \item $\mu = \mu_0 \mu_r$ die Permittivität ($\mu_r$, relative Permittivität, ein Materialparameter)
+    \item $\varepsilon = \varepsilon_0 \varepsilon_r$ ($\varepsilon_r$, relative Dielektrizitätszahl, ein Materialparameter)
+    \item $\mu \varepsilon = \frac{1}{c^2}$ wobei $c$ die Lichtgeschwindigkeit im Material ist. \\ Für $\mu_0 \varepsilon_0 = \frac{1}{c_0^2}$ ist $c_0$ die Lichtgeschwindigkeit im Vakuum.
+  \end{itemize}
+\end{itemize}
+
+\begin{enumerate}
+\item Wir nehmen an, dass $\vec{E}$ und $\vec{B}$ unabhängig von der $z$-Koordinate sind, die magnetische Flussdichte in der $x$-$y$-Ebene liegt und das elektrische Feld in $z$-Richtung zeigt, d.h.
+\begin{equation} \label{eq:maxw:plane}
+\vec{B}(x,y,z, t) = \left( \begin{array}{c} B_x(x,y, t) \\ B_y(x,y, t) \\ 0 \end{array} \right), \qquad 
+  \vec{E}(x,y,z, t) = \left( \begin{array}{c} 0 \\ 0 \\ E_z(x,y, t) \end{array} \right). 
+\end{equation}  
+Leiten Sie hieraus eine skalare Wellengleichung für $E_z(x,y,t)$ her. \\
+{\textbf{Hinweis:}} \\
+\begin{itemize}
+  \item Setzen Sie \eqref{eq:maxw:plane} in \eqref{eq:maxw1} und \eqref{eq:maxw2} ein und leiten sie \eqref{eq:maxw2} nach $t$ ab. 
+  \item Es gilt 
+  $$
+  \frac{ \partial \frac{\partial E_z (x,y,t)}{\partial x}}{\partial t}
+  = \frac{\partial^2 E_z (x,y,t)}{\partial x \partial t}
+  = \frac{\partial^2 E_z (x,y,t)}{\partial t \partial x} 
+  = \frac{ \partial \frac{\partial E_z (x,y,t)}{\partial t}}{\partial x}
+  $$
+\end{itemize}
+\item Wir betrachten die skalare Wellengleichung (in 2D)
+\begin{equation} \label{eq:wave}
+  \frac{1}{c^2} \frac{\partial^2 u}{\partial t^2}(x,y,t) = \Delta u (x,y,t)
+\end{equation}
+wobei $c$ die Ausbreitungsgeschwindigkeit der Welle (z.B. Lichtgeschwindigkeit oder Schallgeschwindigkeit) ist. Wenn sich Randbedingungen und Quellen (z.B. $\vec{j}$) in der Zeit nicht ändern, so kann die Lösung zerlegt werden in folgende Anteile:
+\begin{equation*}
+  u(x,y,t) = \sum_{n=0}^{\infty} \underbrace{\left( c_n \sin(2 \pi n t) + 
+  d_n \cos(2 \pi n t) \right)}_{\phi_n(t)} \cdot ~ \hat u_n(x,y) 
+\end{equation*}
+Wenn Wellen nur für eine spezielle Frequenz angeregt werden, so sind fast alle Koeffizienten $d_n$ und $c_n$ gleich Null und es verbleibt lediglich
+\begin{equation*}
+  u(x,y,t) = \underbrace{(c_n \sin( \omega t) + d_n \cos( \omega t))}_{\phi_n(t)} \cdot ~ \hat u_n(x,y) , \quad \omega = 2 \pi n.
+\end{equation*}
+Wir definieren zusätzlich die Wellenzahl $k = \omega / c$ (Einheit $[k] = 1/m$). 
+Setzen Sie diesen Ansatz in \eqref{eq:wave} ein. Welcher Differentialgleichung gehorcht $\hat{u}_n(x,y)$?
+\item Es sollen die Wellengleichungen für Mikrowellen der Wellenlänge $28mm$ berechnet werden. Da die Wellenlänge bekannt ist, kann der obige Ansatz verwendet werden. Welchen Wert erhalten Sie in diesem Fall für $k$?
+\end{enumerate}
+
+\end{task}
+
+\begin{task}[Vorbereitung: Mikrowellen]{}
+  Wir betrachten nun 1D Mikrowellen. Am Ort $x=0$ sei ein Mikrowellensender angebracht, der eine Welle der Modulation $u(0,t) = \cos(\omega t)$ von links nach rechts aussendet. Im Interval $[0,a]$ liegt ein Material vor in dem die Lichtgeschwindigkeit $c_1$ ist, während im Interval $[a,b]$ ein Material mit Lichtgeschwindigkeit $c_2$  vorliegt.
+  Wir wollen nun die Funktion $u(x,t)$ rekonstruieren, die die Wellengleichung unter diesen Bedingungen löst. Dazu wagen wir folgenden Ansatz:
+ \begin{equation} \label{eq:ansatz}
+  u(x,t) = \left\{ \begin{array}{cl} \cos(\omega t - k_1 x + \varphi_1)  & \text{ wenn } x \leq a,\\
+                                     \cos(\omega t - k_2 x + \varphi_2)  & \text{ sonst, }\end{array} \right.
+                                    \end{equation}
+                                    wobei
+                                    $k_1 = \omega/c_1$ und $k_2 = \omega/c_2$.
+                                    Diesem Ansatz liegt die Annahme zugrunde, dass es sich nur um eine von links nach rechts laufende Welle handelt, d.h. es gibt keine Reflexion.
+%Wir treffen zusätzlich folgende Annahme:
+% $k_1 = 2 \pi M_1 / a$ und  $k_2 = 2 \pi M_2 / a$ für natürliche Zahlen $M_1,~M_2$.
+\begin{enumerate}
+\item Zeigen Sie dass $u(x,t)$ aus \eqref{eq:ansatz} der Wellengleichung $\frac{\partial^2 u}{\partial t^2}(x,t) = c^2 \frac{\partial^2 u}{\partial x^2}(x,t)
+$ gehorcht.
+\item Bestimmen Sie nun die Koeffizienten $\varphi_1$, $\varphi_2$, sodass $u(x,t)$ die folgenden zusätzlichen Bedingungen erfüllt:
+  \begin{itemize}
+  \item Die Welle am Eingang entspricht der eingeprägten Modulation:
+    $$u(0,t) = \cos(\omega t)$$
+  \item Die Welle ist stetig am Übergang, d.h.:
+    $$  \cos(\omega t - k_1 a + \varphi_1) = \cos(\omega t - k_2 a + \varphi_2)$$
+  \end{itemize}
+\item Zeichnen Sie die Lösung für $t=0$, $t=\pi/4$, $t=\pi/2$ für zwei Fälle:
+  \begin{itemize}
+    \item $a = 2 \pi$, $b= 4 \pi$, $c_1 = c_2 = \omega = 1$
+    \item $a = 2 \pi$, $b= 4 \pi$, $c_1 = \omega = 1$, aber $c_2 = \frac23$.
+    \end{itemize}
+\item Zeigen Sie, dass die beiden letzten Fälle sich bei $b=4 \pi$ auslöschen.
+\end{enumerate}
+\end{task}
+
+\end{document}
