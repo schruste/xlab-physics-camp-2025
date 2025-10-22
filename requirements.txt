@@ -3,6 +3,8 @@ jupyterlite-core==0.5.1
 jupyterlab~=4.3.4
 notebook~=7.3.2
 
+scipy
+
 matplotlib
 ipynb
 
