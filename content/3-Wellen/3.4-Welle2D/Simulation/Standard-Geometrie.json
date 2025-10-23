@@ -1,0 +1,79 @@
+{
+   "Spezialobjekte": [
+      {
+         "Name": "MySender",
+         "Typ": "Sender",
+         "Bezugspunkt": [
+            -0.15,
+            0.0
+         ],
+         "Rotationswinkel": 0
+      }
+   ],
+   "Block": [
+      {
+         "Name": "Block1",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.12,
+               -0.32
+            ],
+            [
+               0.16,
+               -0.12
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.14,
+            -0.22
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Block2",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.12,
+               -0.04
+            ],
+            [
+               0.16,
+               0.04
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.14,
+            0.0
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Block3",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.12,
+               0.12
+            ],
+            [
+               0.16,
+               0.32
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.14,
+            0.22
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      }
+   ],
+   "Kreis": []
+}

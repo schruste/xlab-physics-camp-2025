@@ -1,0 +1,107 @@
+\documentclass[a4paper,12pt]{paper}
+\usepackage{a4}
+\usepackage[english]{babel}
+\usepackage[pdftex]{graphicx} 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+ 
+%\usepackage{theorem}
+% \usepackage{subfigure}
+%
+\usepackage[abs]{overpic}
+
+% \usepackage{wrapfig}
+%
+\DeclareMathOperator{\rg}{rg}
+%
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\kk}{\mathbb{K}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\dd}{\,d}
+\newcommand{\normal}{n}
+\newcommand{\ddp}{\partial}
+\newcommand{\grad}{\nabla}
+\newcommand{\jumpleft}{[\![}
+\newcommand{\jumpright}{]\!]}
+\newcommand{\averageleft}{\{\!\!\{}
+\newcommand{\averageright}{\}\!\!\}}
+\newcommand{\divergence}{\textrm{div}\ \!}
+\renewcommand{\span}{\textrm{span}\ \!}
+\renewcommand{\div}{\textrm{div}\ \!}
+\newcommand{\HSobolev}{H}
+\newcommand{\Lzwei}{L^2}
+\newcommand{\alert}[1]{{\bf #1}}
+\DeclareGraphicsExtensions{.pdf,.eps,.ps,.eps.gz,.ps.gz,.eps.Y}
+%\DeclareGraphicsExtensions{.png}
+% \theoremstyle{break}
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{mybem}{Bemerkung}[section]
+\newtheorem{mybsp}{Testbeispiel}[section]
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+
+%opening
+
+\title{Numerical simulation of microwaves}
+\author{C.Lehrenfeld}
+\begin{document}
+\maketitle
+
+\section{The PDE model}
+We start from Maxwell's equations in 3D for the electric and the magnetic field density:
+\begin{subequations}\label{eq:prob_form1}
+\begin{eqnarray}
+  \operatorname{curl} E &= - \frac{\partial}{\partial t} B  \\ 
+  \operatorname{curl} B &= \mu_0 \varepsilon_0 \frac{\partial}{\partial t} E
+\end{eqnarray}
+\end{subequations}
+which yields
+$$
+\operatorname{curl} \operatorname{curl} B = - \mu_0 \varepsilon_0 \frac{\partial^2}{\partial^2 t} B.
+$$
+With the 2D assumption $B(x,y,z) = (0,0,u(x,y))$, $E(x,y,z) = (e_1(x,y),e_2(x,y),0)$, i.e. magnetic field and electric field don't vary in $z$-direction and hence, the electric field is in the plane while the magnetic field is orthogonal to it, we have 
+$$
+(0,0,-\Delta u) = - \mu_0 \varepsilon_0 (0,0,\frac{\partial^2}{\partial^2 t} u)
+$$
+or
+$$
+-\Delta u + \mu_0 \varepsilon_0 \frac{\partial^2}{\partial^2 t} u = 0.
+$$
+Additionally we add the assumption of a time-harmonic signal $u(x,y,t) = \hat{u}(x,y) e^{i 2\pi f t}$ for a given frequency $f$ ($\omega = 2 \pi f$) which yields:
+$$
+(- \Delta - \mu_0 \varepsilon_0 \omega^2 \frac{\partial^2}{\partial^2 t}) \hat u(x,y) e^{i 2 \pi f t} = 0
+$$
+and hence the Helmholtz equation ($\omega = 2 \pi f$)
+$$
+- \Delta \hat u - \mu_0 \varepsilon_0 \omega^2 \frac{\partial^2}{\partial^2 t} \hat u = 0.
+$$
+With $\mu_0 \varepsilon_0 = c^{-2}$ and $k = \omega/c = 2 \pi f/c$ we may also write
+$$
+- \Delta \hat u - k^2 \frac{\partial^2}{\partial^2 t} \hat u = 0.
+$$
+
+This is our PDE for the 2D domains where $c$ depends on the material and $k$ is the microwave frequency with $k = \frac{2 \pi f}{c} = \frac{2 \pi}{l}$ where $l$ is the (micro wave) wave length. 
+
+Note that this derivation has been for vacuum with $\mu_0 \varepsilon_0 = c^{-2}$. For the wave propagation in material, we have that $\mu_r$ and $\varepsilon_r$ will not be $1$ and will have a change in the material parameter $k$ which is proportional to the refrection index.
+
+In the example configuration we have (in vacuum) $k = 10^2 / 2.8 m^{-1}$.
+
+\section{Boundary conditions}
+\subsection{Outer boundary conditions}
+On the outer boundary we typically want "outgoing", non-reflecting boundary conditions, which does not translate directly to a simple PDE boundary condition. We solve the problem by taking a bounding box around the area of interest which is large enough and surround it by a PML boundary layer. PML -- perfectly matched layers -- is an artificial material that absorbs waves all incoming waves via an artificial coordinate transformation into the complex plane (no details here -- COMSOL should be able to do it magically).
+
+\subsection{Outgoing waves}
+The microwave sender is modeled simply by prescribing Dirichlet boundary conditions: $\hat{u}_D = e^{i (\vec{k} \cdot \vec{x})}$ where $\vec{k} = k \cdot \vec{e}$ where $\vec{e}$ is the unit direction of the sender. This models that a wave is emitted in the direction $\vec{e}$ with the frequency corresponding to $k$. The amplitude is normalized to $1$ here.
+
+\subsection{Material boundaries}
+I don't know how to properly model material boundaries.
+A perfect reflection corresponds to Dirichlet boundary conditions. This may be the right conditions for the outer boundary of the horn antenna but even if not this should hopefully not have a big influence to the remainder anyway...
+
+For all the other material (e.g. also the cone of the antenna) I suggest that you model them only by a different material and not by a boundary conditions.
+\end{document}
+
