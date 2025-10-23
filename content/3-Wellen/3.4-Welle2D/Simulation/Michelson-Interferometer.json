@@ -1,0 +1,79 @@
+{
+   "Spezialobjekte": [
+      {
+         "Name": "Sender",
+         "Typ": "Sender",
+         "Bezugspunkt": [
+            -0.3,
+            0.0
+         ],
+         "Rotationswinkel": 0
+      }
+   ],
+   "Block": [
+      {
+         "Name": "Alu-Blech_unten",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               -0.105,
+               -0.3015
+            ],
+            [
+               0.105,
+               -0.3
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.0,
+            -0.3
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Alu-Blech_rechts",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.3,
+               -0.105
+            ],
+            [
+               0.3015,
+               0.105
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.3,
+            0.0
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Hartfaserplatte",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.0,
+               -0.105
+            ],
+            [
+               0.0025,
+               0.105
+            ]
+         ],
+         "Rotationswinkel": 45,
+         "Rotationsmittelpunkt": [
+            0.0,
+            0.0
+         ],
+         "Material": "Hartfaserplatte",
+         "Brechungsindex": 1.58
+      }
+   ],
+   "Kreis": []
+}

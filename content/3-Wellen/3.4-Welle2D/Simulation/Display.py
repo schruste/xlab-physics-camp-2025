@@ -5,7 +5,7 @@ import json
 import os
 
 from ipywidgets import interact, interactive_output, interact_manual, Button, Output
-from ipywidgets import FloatSlider, IntSlider, IntText, FloatLogSlider, FloatRangeSlider, Text, Dropdown, BoundedFloatText,IntRangeSlider
+from ipywidgets import FloatSlider, IntSlider, IntText, FloatLogSlider, FloatRangeSlider, Text, Dropdown, BoundedFloatText,IntRangeSlider,ToggleButtons
 from ipywidgets import interactive, fixed, dlink, link, HBox, Box, VBox, Layout,Button
 from IPython.display import clear_output,display, Javascript
 
@@ -21,7 +21,7 @@ style_widget = {'description_width': '120px'}
 layout_widget = Layout(width='575px', height='32px')
 layout_left = Layout(width='400px', height='32px')
 
-
+##TODO anpassen der widgetgrößen layout_mobile = Layout(width='90%', height='32px')
 
 
 ### define widgets and dictionaries of widgets
@@ -29,6 +29,9 @@ allfiles = []
 for file in os.listdir("."):
     if file.endswith(".json"): 
         allfiles.append(file)
+
+allfiles = sorted(allfiles)
+
 
 #button1 = Button(description="Auswertung starten",layout=layout_button_left)
 # options for Dropdown-Widgets
@@ -42,7 +45,8 @@ options_objects = Dropdown(description='Objekttyp', options=['Spezialelemente','
 #########################################################################################################################
 ## Widgets for function start()
 slider_maxh = FloatLogSlider(description='Gitterbreite', base=2,min=-10,max=-1,step=0.1, value=0.05, readout_format='.3f',disabled=False, style=style_widget,layout=layout_left)
-slider_todo=Dropdown(description=' ',options=options_todo,value=None,disabled=False, style=style,layout=layout_left)
+slider_todo=Dropdown(description=' ',options=options_todo,value='Geometrie laden',disabled=False, style=style,layout=layout_left)
+
 
 ## Output-Widgets for print objects
 dummy_btn = Button(description='',disabled=True,layout=layout_button_left,style = {'button_color': 'transparent'})
@@ -93,25 +97,33 @@ file_save = Text(value='Geometrie',placeholder= 'Datei', description='Dateiname'
 #########################################################################################################################
 ## Widgets for function solve_pde()
 slider_wave=FloatLogSlider(description='Wellenlänge',base=2,value=0.028,min=-10,max=1,disabled=False, readout_format='.4f',style=style_widget,layout=layout_widget)
-slider_degree = IntSlider(description='Polynomgrad',value=4,min=1,max=6,disabled=False, style=style_widget,layout=layout_widget)
-slider_maxh2=FloatLogSlider(description='Gitterbreite', base=2,value=0.008,min=-10,max=-6.1,step=0.01, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
+slider_degree = IntSlider(description='Polynomgrad',value=3,min=1,max=6,disabled=False, style=style_widget,layout=layout_widget)
+slider_maxh2=FloatLogSlider(description='Gitterbreite', base=2,value=0.01,min=-10,max=-5.1,step=0.01, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
 btn = Button(description='Gleichung lösen')
 
 #########################################################################################################################
 ## Widgets for function evaluate()
 slider_evaluate = Dropdown(description='Auswertung an',value=None,options=options_evaluation,style=style_widget,layout=layout_left)
-x1 = FloatSlider(description='Punkt 1: x', value=0.0,min=(-pm.current_rpml),max=(pm.current_rpml),step=0.001, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
+x1 = FloatSlider(description='Punkt 1: x', value=-0.023,min=(-pm.current_rpml),max=(pm.current_rpml),step=0.001, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
 x2 = FloatSlider(description='Punkt 2: x', value=0.0,min=(-pm.current_rpml),max=(pm.current_rpml),step=0.001, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
 y1 = FloatSlider(description='Punkt 1: y', value=0.0,min=(-pm.current_rpml),max=(pm.current_rpml),step=0.001, readout_format='.3f', disabled=False, style=style_widget,layout=layout_widget)
 y2 = FloatSlider(description='Punkt 2: y', value=0.0,min=(-pm.current_rpml),max=(pm.current_rpml),step=0.001, readout_format='.3f',disabled=False, style=style_widget,layout=layout_widget)
-rad = FloatSlider(description='Radius',value=0.1,min=0.005,max=pm.current_rpml,step=0.001, disabled=False, readout_format='.3f',style=style_widget,layout=layout_widget)
-angle1 = IntSlider(description='Winkel 1:', value=0, min=0, max=360,disabled=False, style=style_widget,layout=layout_widget)
-angle2 = IntSlider(description='Winkel 2:', value=180, min=0, max=360,disabled=False, style=style_widget,layout=layout_widget)
+rad = FloatSlider(description='Radius',value=0.4,min=0.005,max=pm.current_rpml,step=0.001, disabled=False, readout_format='.3f',style=style_widget,layout=layout_widget)
+angle1 = IntSlider(description='Winkel 1:', value=300, min=0, max=360,disabled=False, style=style_widget,layout=layout_widget)
+angle2 = IntSlider(description='Winkel 2:', value=60, min=0, max=360,disabled=False, style=style_widget,layout=layout_widget)
 #angle = IntRangeSlider(description='Winkelspanne', value=[0,180],min=0,max=360, disabled=False,style=style_widget,readout=False,layout=Layout(width='400px', height='32px'))
 #show_angle1 = IntText(description='von', value=0, min=0,max=360,disabled=True, style=style,layout=Layout(width='75px', height='32px'))
 #show_angle2 = IntText(description='bis', value=180, min=0,max=360,disabled=True, style=style,layout=Layout(width='75px', height='32px'))
 #angle_box = HBox([angle,show_angle1,show_angle2]) 
 
+
+def make_mobile(val = True):	
+    if val:
+        print("Switched to mobile version.")
+    else:
+        print("Switched to desktop version.")
+    pm.isMobile=val
+    return
 
 def angle_area(*args):  ##not used
     """function that creates an admissible range for circle sector
@@ -773,38 +785,78 @@ def show_slider(value):
     load.layout.width = "0%"
     save.layout.width = "0%"
     
+    if pm.isMobile:
+    	new_ob.layout.height = "1px"
+    	change_ob.layout.height = "1px"
+    	remove_ob.layout.height = "1px"
+    	remove_all.layout.height = "1px"
+    	load.layout.height = "1px"
+    	save.layout.height = "1px"
+    else:
+    	new_ob.layout.height = "100%"
+    	change_ob.layout.height = "100%"
+    	remove_ob.layout.height = "100%"
+    	remove_all.layout.height = "100%"
+    	load.layout.height = "100%"
+    	save.layout.height = "100%"
+    
     if value == "Objekt hinzufügen":
         slider_refrac3.layout.visibility = "hidden"
         slider_refrac3.layout.height = "0%"
         new_ob.layout.visibility = "visible"
-        new_ob.layout.width = "60%"
+        if pm.isMobile:
+        	new_ob.layout.width = "60%"
+        	new_ob.layout.height = "100%"
+        	print("test")
+        else:
+        	new_ob.layout.width = "60%"
         reset_values()
     if value == "Objekt bearbeiten":
         slider_change.options = Geo.allnames
         change_ob.layout.visibility = "visible"
-        change_ob.layout.width = "60%"
+        if pm.isMobile:
+        	change_ob.layout.width = "60%"
+        	change_ob.layout.height = "100%"
+        else:
+        	change_ob.layout.width = "60%"
         slider_change.value = None
         
     if value == "Objekt entfernen":
         slider_remove.options = Geo.allnames
         remove_ob.layout.visibility = "visible"
-        remove_ob.layout.width = "60%"
+        if pm.isMobile:
+        	remove_ob.layout.width = "60%"
+        	remove_ob.layout.height = "100%"
+        else:
+        	remove_ob.layout.width = "60%"
         update_list(remove_ob.children[-2])
         remove_ob.children[-2].on_click(update_objects1)
     if value == "Alle Objekte entfernen":
         remove_all.layout.visibility = "visible"
-        remove_all.layout.width = "60%"
+        if pm.isMobile:
+        	remove_all.layout.width = "60%"
+        	remove_all.layout.height = "100%"
+        else:
+        	remove_all.layout.width = "60%"
         update_list(remove_all.children[-2])
         
     if value == "Geometrie laden":
         file_load.options = allfiles
-        file_load.value ='Standard-Geometrie.json'
+        file_load.value ='Doppelspalt.json'
         load.layout.visibility = "visible"
-        load.layout.width = "60%"
+        if pm.isMobile:
+        	load.layout.width = "60%"
+        	load.layout.height = "100%"
+        else:
+        	load.layout.width = "60%"
         update_list(load.children[-2])
     if value == "Geometrie speichern":
         save.layout.visibility = "visible"
-        save.layout.width = "60%"
+        if pm.isMobile:
+        	save.layout.width = "60%"
+        	save.layout.height = "100%"
+        else:
+        	save.layout.width = "60%"
         update_list(save.children[-2])
 
 

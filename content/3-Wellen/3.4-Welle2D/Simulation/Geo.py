@@ -4,6 +4,7 @@ import parameter as pm
 
 from ngsolve import *
 from ngsolve.webgui import Draw
+#import netgen.gui
 
 from netgen.geom2d import SplineGeometry
 from netgen.geom2d import CSG2d, Circle, Rectangle
@@ -483,7 +484,7 @@ class Geo:
         #check position of all existing objects
         
         for i in Geo.allobjects:
-            if  i["Brechungsindex"] != refrac and i["Name"] != name:
+            if  i["Brechungsindex"] != refrac and i["Name"] != name and i["Typ"]!="Sender": 
                 if sqrt((x-i["Mittelpunkt"][0])**2+(y-i["Mittelpunkt"][1])**2)<(rad+i["Radius"]):
                     
                     display(Javascript(pm.warning_overlap))

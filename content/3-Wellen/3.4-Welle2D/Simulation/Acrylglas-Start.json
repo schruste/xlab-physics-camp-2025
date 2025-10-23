@@ -1,0 +1,37 @@
+{
+   "Spezialobjekte": [
+      {
+         "Name": "Sender",
+         "Typ": "Sender",
+         "Bezugspunkt": [
+            -0.15,
+            0.0
+         ],
+         "Rotationswinkel": 0
+      }
+   ],
+   "Block": [
+      {
+         "Name": "Acrylblock1",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               -0.1,
+               -0.05
+            ],
+            [
+               -0.0757,
+               0
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            -0.25,
+            -0.08785
+         ],
+         "Material": "Acrylglas",
+         "Brechungsindex": 1.57
+      }
+   ],
+   "Kreis": []
+}

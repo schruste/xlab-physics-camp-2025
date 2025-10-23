@@ -11,6 +11,8 @@ mat_thickness = 0.0025
 current_rpml = 0.4
 radius_outer = 0.56
 
+isMobile = False
+
 
 
 

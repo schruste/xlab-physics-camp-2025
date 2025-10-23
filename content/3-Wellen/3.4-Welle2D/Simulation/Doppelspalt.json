@@ -1,0 +1,88 @@
+{
+   "Spezialobjekte": [
+      {
+         "Name": "Sender",
+         "Typ": "Sender",
+         "Bezugspunkt": [
+            -0.45,
+            0.0
+         ],
+         "Rotationswinkel": 0
+      },
+      {
+         "Name": "Wachslinse",
+         "Typ": "Wachslinse",
+         "Bezugspunkt": [
+            -0.05,
+            0.0
+         ],
+         "Rotationswinkel": 180
+      }
+   ],
+   "Block": [
+      {
+         "Name": "Alu-Blech1",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.15,
+               -0.0675
+            ],
+            [
+               0.1515,
+               -0.2775
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.15,
+            -0.1725
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Alu-BlechMitte",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.15,
+               -0.0425
+            ],
+            [
+               0.1515,
+               0.0425
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.15,
+            0.0
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      },
+      {
+         "Name": "Alu-Blech2",
+         "Typ": "Block",
+         "Koordinaten": [
+            [
+               0.15,
+               0.0675
+            ],
+            [
+               0.1515,
+               0.2775
+            ]
+         ],
+         "Rotationswinkel": 0,
+         "Rotationsmittelpunkt": [
+            0.15,
+            0.1725
+         ],
+         "Material": "Aluminium",
+         "Brechungsindex": 0
+      }
+   ],
+   "Kreis": []
+}
